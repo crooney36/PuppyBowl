@@ -7,3 +7,7 @@ body {
   align-items: center;
   color: white;
 }
+
+#puppyCards {
+  margin: 20px;
+}
