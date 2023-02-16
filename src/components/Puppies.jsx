@@ -2,12 +2,12 @@ import React from "react";
 import PuppyCard from "./PuppyCard";
 
 function Puppies(props) {
-  const puppies = props.puppies;
+  const puppyInfo = props.puppies;
 
   return (
     <div id="puppyCards">
-      {puppies.map((e, idx) => {
-        return <PuppyCard key={e.idx} puppies={e} />;
+      {puppyInfo.map((e) => {
+        return <PuppyCard key={e.id} puppy={e} selectPuppy={props.selectPuppy} />;
       })}
     </div>
   );
