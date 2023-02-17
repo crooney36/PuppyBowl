@@ -14,13 +14,17 @@ body {
 
 #puppyCards {
   display: flex;
-  width: 200px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
   margin: 20px;
 }
 
 #puppyCard {
   display: flex;
+  justify-content: center;
   flex-direction: column;
+  width: 220px;
   margin: 20px;
   border: 1px;
   border-style: solid;
@@ -28,21 +32,37 @@ body {
   font-size: x-small;
   background-color: wheat;
 }
-/* #seeDetailsBtn {
-  position:sticky;
-  bottom: 0;
-} */
 #puppyPage {
   margin: 0;
   background-color: rgb(90, 143, 196);
 }
 
 #dogDetails {
-  margin: 0;
+  margin: 20px;
+  margin-left: 100px;
   font-family: Verdana;
   justify-content: center;
+  font-size: large;
+  border: 1px;
+  border-style: solid;
+  padding: 20px;
+  width: 40%;
+  background-color: wheat;
 }
 
+img {
+  border: 1px;
+  border-style: solid;
+  margin: 10px;
+}
 #search-view {
-  margin: 20px;
+  position: absolute;
+  top: 0;
+  height: 20px;
+  margin-top: 15px;
+}
+#resetbtn {
+  margin-left: 350px;
+  top: 15px;
+  position: absolute;
 }

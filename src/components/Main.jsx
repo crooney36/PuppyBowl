@@ -37,12 +37,18 @@ const Main = () => {
   return (
     <div id="main">
       <Navbar />
-      <button onClick={() => getPuppies()}>Reset List</button>
+      <button id="resetbtn" onClick={() => getPuppies()}>
+        Reset List
+      </button>
       <div id="puppyPage">
         {selectedPuppy.id ? (
           <SinglePuppy selectedPuppy={selectedPuppy} />
         ) : (
-          <Puppies puppies={puppies} setPuppies={setPuppies} selectPuppy={selectPuppy} />
+          <Puppies
+            puppies={puppies}
+            setPuppies={setPuppies}
+            selectPuppy={selectPuppy}
+          />
         )}
       </div>
     </div>
