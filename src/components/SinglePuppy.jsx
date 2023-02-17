@@ -1,15 +1,15 @@
-import React from "react"
+import React from "react";
 
 const SinglePuppy = (props) => {
-    return(
-        <div id="dogDetails">
-            <h4>{props.selectedPuppy.name}</h4>
-            <img src={props.selectedPuppy.imageUrl} width='40%' height='40%'/>
-            <p>{props.selectedPuppy.breed}</p>
-            <p>{props.selectedPuppy.team.name}</p>
-            <p>{props.selectedPuppy.status}</p>
-        </div>
-    )
-}
+  return (
+    <div id="dogDetails">
+      <h4>{props.selectedPuppy.name}</h4>
+      <img src={props.selectedPuppy.imageUrl} width="30%" height="30%" />
+      <p>Breed: {props.selectedPuppy.breed}</p>
+      <p>Team Name: {props.selectedPuppy.team.name}</p>
+      <p>Status: {props.selectedPuppy.status}</p>
+    </div>
+  );
+};
 
-export default SinglePuppy
+export default SinglePuppy;

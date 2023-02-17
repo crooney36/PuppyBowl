@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Navbar } from "../components";
+import { Navbar, Search } from "../components";
 import Puppies from "./Puppies";
 import SinglePuppy from "./SinglePuppy";
 
@@ -11,20 +11,20 @@ const Main = () => {
 
   const getPuppies = async () => {
     try {
-        const response = await fetch(BASE_URL);
-        const info = await response.json();
-        setPuppies(info.data.players);
+      const response = await fetch(BASE_URL);
+      const info = await response.json();
+      setPuppies(info.data.players);
     } catch (err) {
       console.error(err);
     }
-  }
+  };
 
-  async function selectPuppy(puppyId){
+  async function selectPuppy(puppyId) {
     try {
-        const response = await fetch(`${BASE_URL}/${puppyId}`);
-        const info = await response.json();
-        const puppy = info.data.player
-        setSelectedPuppy(puppy);
+      const response = await fetch(`${BASE_URL}/${puppyId}`);
+      const info = await response.json();
+      const puppy = info.data.player;
+      setSelectedPuppy(puppy);
     } catch (err) {
       console.error(err);
     }
@@ -37,8 +37,13 @@ const Main = () => {
   return (
     <div id="main">
       <Navbar />
+      <Search puppies={puppies} />
       <div id="puppyPage">
-        { selectedPuppy.id ? <SinglePuppy selectedPuppy={selectedPuppy}/> : <Puppies puppies={puppies} selectPuppy={selectPuppy} /> }
+        {selectedPuppy.id ? (
+          <SinglePuppy selectedPuppy={selectedPuppy} />
+        ) : (
+          <Puppies puppies={puppies} selectPuppy={selectPuppy} />
+        )}
       </div>
     </div>
   );

@@ -7,7 +7,9 @@ function Puppies(props) {
   return (
     <div id="puppyCards">
       {puppyInfo.map((e) => {
-        return <PuppyCard key={e.id} puppy={e} selectPuppy={props.selectPuppy} />;
+        return (
+          <PuppyCard key={e.id} puppy={e} selectPuppy={props.selectPuppy} />
+        );
       })}
     </div>
   );
