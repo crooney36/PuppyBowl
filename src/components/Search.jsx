@@ -1,39 +1,23 @@
-import React, { useEffect, useState } from "react";
-import SinglePuppy from "./SinglePuppy";
+import React, { useState } from "react";
 
-function Search(props) {
-  const names = ["Anise, Bert, Crumpet"];
-  const [searchTerm, setSearchTerm] = useState("");
-  const [searchResults, setSearchResults] = useState("");
-  const handleChange = (event) => {
-    setSearchTerm(event.target.value);
-  };
-  useEffect(() => {
-    const results = names.filter(() => {
-      names.includes(searchTerm);
-    });
-    setSearchResults(results);
-  }, [searchTerm]);
+const Search = (props) => {
+  const [searchValue, setSearchValue] = useState('')
 
+  function searchPuppy(){
+    let searchedPuppies = props.puppies.filter(puppy =>
+    puppy.name.toLowerCase().includes(searchValue)
+    )
+    props.setPuppies(searchedPuppies)
+  }
   return (
     <div id="search-view">
-      <form>
-        <label>
-          Name:
-          <input
-            type="text"
-            name="name"
-            value={searchTerm}
-            onChange={handleChange}
-          />
-        </label>
-        <input type="submit" value="Submit" />
-      </form>
-      <ul>
-        {searchResults.map((item) => (
-          <li>item</li>
-        ))}
-      </ul>
+      <label>
+        Search Puppies: 
+        <input value={searchValue} onChange={(evt)=>{
+          setSearchValue(evt.target.value)
+        }} />
+      </label>
+      <button onClick={() => searchPuppy()}>Search</button>
     </div>
   );
 }

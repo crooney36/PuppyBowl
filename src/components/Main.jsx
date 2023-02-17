@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Navbar, Search } from "../components";
+import { Navbar } from "../components";
 import Puppies from "./Puppies";
 import SinglePuppy from "./SinglePuppy";
 
@@ -37,12 +37,12 @@ const Main = () => {
   return (
     <div id="main">
       <Navbar />
-      <Search puppies={puppies} />
+      <button onClick={() => getPuppies()}>Reset List</button>
       <div id="puppyPage">
         {selectedPuppy.id ? (
           <SinglePuppy selectedPuppy={selectedPuppy} />
         ) : (
-          <Puppies puppies={puppies} selectPuppy={selectPuppy} />
+          <Puppies puppies={puppies} setPuppies={setPuppies} selectPuppy={selectPuppy} />
         )}
       </div>
     </div>
